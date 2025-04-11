@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Production build
+dist/
+
+# Vite cache
+.vite/
+
+# Optional: dotenv environment files
+.env
+.env.*.local
+
+# Optional: IDE settings
+.vscode/
+.idea/
+
+# Optional: Mac system files
+.DS_Store
+
+# Optional: Windows system files
+Thumbs.db
+
+# Optional: test coverage
+coverage/
+
+# Optional: typescript cache
+*.tsbuildinfo
+
+# Optional: Parcel cache
+.cache/
+
+# Optional: eslint cache
+.eslintcache
