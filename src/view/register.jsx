@@ -49,8 +49,9 @@ export default function WorkhiveSignUp() {
 
     const handleCredentialResponse = (response) => {
         const jwt = response.credential;
-        console.log("Google JWT Token:", jwt);
-        // You can decode it or send it to your backend
+        // console.log("Google JWT Token:", jwt);
+        setLoginStatus({ success: true, message: 'Google Sign-In successful!' });
+
     };
 
     const handleGoogleSignUp = () => {

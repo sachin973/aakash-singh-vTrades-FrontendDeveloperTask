@@ -31,3 +31,6 @@ yarn
 npm run dev
 # or
 yarn dev
+
+### 4. Demo 
+(https://aakash-singh-v-trades-frontend-developer-task-lime.vercel.app/)
