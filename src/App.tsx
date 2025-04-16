@@ -1,14 +1,21 @@
-import React, { useEffect, Suspense, Fragment } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { routes } from "./routes";
+import React, { useEffect, Suspense, Fragment, FC } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { routes } from './routes';
 
-export default function App() {
+interface RouteItem {
+  path: string;
+  component: React.LazyExoticComponent<FC> | FC;
+  layout?: FC<{ children: React.ReactNode }>;
+  routes?: RouteItem[];
+}
+
+export default function App(): JSX.Element {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="App ">
+    <div className="App">
       <Router>
         <RenderRoutes data={routes} />
       </Router>
@@ -16,13 +23,13 @@ export default function App() {
   );
 }
 
-function RenderRoutes({ data }) {
+function RenderRoutes({ data }: { data: RouteItem[] }): JSX.Element {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
   return (
-    <Suspense >
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         {data.map((route, i) => {
           const Component = route.component;
