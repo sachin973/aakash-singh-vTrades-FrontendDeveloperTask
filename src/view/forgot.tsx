@@ -26,9 +26,9 @@ export default function WorkhiveForgotPassword() {
   const { errors, validateEmail } = useFormValidation();
 
   const mockUsers: MockUser[] = [
-    { email: 'navnash@workhive.com', password: 'password123' },
-    { email: 'demo@workhive.com', password: 'demo1234' },
-    { email: 'test@workhive.com', password: 'test1234' }
+    { email: 'navnash@workhive.com', password: 'Password@123' },
+    { email: 'demo@workhive.com', password: 'Demo@1234' },
+    { email: 'test@workhive.com', password: 'Test@1234' }
   ];
 
   const mockResetPasswordApi = (userEmail: string): Promise<ResetStatus> => {
@@ -69,11 +69,7 @@ export default function WorkhiveForgotPassword() {
   };
 
   return (
-    <div className="w-full max-w-md">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2 text-left">Forgot Your Password?</h2>
-        <p className="text-gray-400 text-left">Enter your email address to receive a verification code.</p>
-      </div>
+    <>
 
       <Alert message={resetStatus.message} success={resetStatus.success} />
 
@@ -90,6 +86,6 @@ export default function WorkhiveForgotPassword() {
 
         <Button type="submit" loading={isLoading}>Reset Password</Button>
       </form>
-    </div>
+    </>
   );
 }

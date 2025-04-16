@@ -14,7 +14,7 @@ interface Status {
 
 export default function CreateNewPassword() {
   const navigate = useNavigate();
-  
+
   // Password states
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
@@ -50,16 +50,16 @@ export default function CreateNewPassword() {
       try {
         const response = await mockUpdatePasswordApi(password);
         setStatus({ success: true, message: response.message });
-        
+
         // Clear form on successful password update
         setPassword('');
         setConfirmPassword('');
-        
+
         // Redirect to login page after successful password update
         setTimeout(() => {
           navigate("/");
         }, 2000);
-        
+
         console.log('Password updated successfully');
       } catch (error: any) {
         setStatus({ success: false, message: error.message || 'Failed to update password' });
@@ -70,14 +70,8 @@ export default function CreateNewPassword() {
   };
 
   return (
-    <div className="w-full max-w-md">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2 text-left">Create New Password</h2>
-        <p className="text-gray-400 text-left">
-          Choose a strong and secure password to keep your account safe. Make sure it's easy for you to remember, but hard for others to guess!
-        </p>
-      </div>
 
+    <>
       {/* Status message */}
       <Alert message={status.message} success={status.success} />
 
@@ -100,7 +94,7 @@ export default function CreateNewPassword() {
             </button>
           }
         />
-        
+
         <Input
           id="confirmPassword"
           type={showConfirmPassword ? "text" : "password"}
@@ -122,6 +116,7 @@ export default function CreateNewPassword() {
 
         <Button type="submit" loading={isLoading}>Update Password</Button>
       </form>
-    </div>
+    </>
+
   );
 }

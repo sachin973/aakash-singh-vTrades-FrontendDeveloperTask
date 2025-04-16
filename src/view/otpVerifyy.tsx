@@ -17,7 +17,7 @@ export default function OtpVerification() {
   const navigate = useNavigate();
   const location = useLocation();
   const { email, type }: LocationState = location.state || {};
-  
+
   // State for the 6-digit OTP code
   const [otpValues, setOtpValues] = useState<string[]>(['', '', '', '', '', '']);
   const [timeLeft, setTimeLeft] = useState<number>(30);
@@ -166,11 +166,7 @@ export default function OtpVerification() {
   };
 
   return (
-    <div className="w-full max-w-md">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2 text-left">Enter OTP</h2>
-        <p className="text-gray-400 text-left">Enter the OTP that we have sent to your email address {emailAddress}.</p>
-      </div>
+    <>
       <button
         onClick={handleChangeEmail}
         className="text-purple-500 hover:text-purple-400 text-sm mb-6 block mx-auto"
@@ -239,6 +235,6 @@ export default function OtpVerification() {
       >
         {isVerifying ? 'Verifying...' : 'Continue'}
       </button>
-    </div>
+    </>
   );
 }

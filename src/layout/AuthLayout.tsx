@@ -1,11 +1,24 @@
 import React, { FC, ReactNode } from 'react';
 import AuthImg from '../asset/img/authimg.png';
-
+import {AuthContent} from "./staticData";
+import {useLocation} from "react-router-dom";
 interface AuthLayoutProps {
   children: ReactNode;
 }
 
 const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
+  const location = useLocation();
+
+  const getTitle = (): string => {
+    const getT = AuthContent.find((item: object) => item.route === location.pathname)?.title;
+    return getT;
+  };
+  
+  const getSubTitle = (): string => {
+    const getT = AuthContent.find((item: object) => item.route === location.pathname)?.subTitle;
+    return getT;
+  };
+
   return (
     <div className="flex h-screen bg-black lg:p-8">
       {/* Left side - Image with overlay text */}
@@ -37,7 +50,14 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
 
       {/* Right side - Sign In Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+      <div className="w-full max-w-md">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-white mb-2 text-left">{getTitle()}</h2>
+        <p className="text-gray-400 text-left">
+        {getSubTitle()}        </p>
+      </div>
         {children}
+        </div>
       </div>
     </div>
   );

@@ -35,9 +35,9 @@ export default function WorkhiveSignUp() {
   const { errors, validateEmail, validatePassword, validateConfirmPassword } = useFormValidation();
 
   const mockUsers: MockUser[] = [
-    { email: 'navnash@workhive.com', password: 'password123' },
-    { email: 'demo@workhive.com', password: 'demo1234' },
-    { email: 'test@workhive.com', password: 'test1234' }
+    { email: 'navnash@workhive.com', password: 'Password@123' },
+    { email: 'demo@workhive.com', password: 'Demo@1234' },
+    { email: 'test@workhive.com', password: 'Test@1234' }
   ];
 
   useEffect(() => {
@@ -103,11 +103,7 @@ export default function WorkhiveSignUp() {
   };
 
   return (
-    <div className="w-full max-w-md scale-[0.9] md:scale-100">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2 text-left">Sign Up</h2>
-        <p className="text-gray-400 text-left">Create an account to manage your workspace seamlessly.</p>
-      </div>
+    <>
 
       <Alert message={signupStatus.message} success={signupStatus.success} />
 
@@ -214,6 +210,6 @@ export default function WorkhiveSignUp() {
           </p>
         </div>
       </form>
-    </div>
+    </>
   );
 }

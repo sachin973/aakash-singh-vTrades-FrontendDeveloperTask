@@ -7,7 +7,7 @@ import Input from "../common/input";
 import { useFormValidation } from "../hooks/useFormValidation";
 import { toggleState } from "../utils/helpers";
 import { initializeGoogle, promptGoogleSignIn } from "../utils/googleAuth";
-import {GOOGLE_CLIENT_ID} from '../utils/constant';
+import { GOOGLE_CLIENT_ID } from '../utils/constant';
 interface LoginStatus {
     success: boolean;
     message: string;
@@ -20,7 +20,7 @@ interface User {
 
 export default function WorkhiveSignIn() {
     const navigate = useNavigate();
-    
+
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('navnash@workhive.com');
     const [password, setPassword] = useState<string>('');
@@ -89,11 +89,7 @@ export default function WorkhiveSignIn() {
     };
 
     return (
-        <div className="w-full max-w-md">
-            <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-white mb-2 text-left">Sign In</h2>
-                <p className="text-gray-400 text-left">Manage your workspace seamlessly. Sign in to continue.</p>
-            </div>
+        <>
 
             <Alert message={loginStatus.message} success={loginStatus.success} />
 
@@ -190,6 +186,6 @@ export default function WorkhiveSignIn() {
                     </p>
                 </div>
             </form>
-        </div>
+        </>
     );
 }
