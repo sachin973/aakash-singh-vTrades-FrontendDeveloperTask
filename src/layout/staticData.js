@@ -18,7 +18,7 @@ export const AuthContent =
     {
         title:"Enter OTP",
         subTitle:"Enter the OTP that we have sent to your email address .",
-        route:"/"
+        route:"/otpverify"
     },
     {
         title:"Create New Password",
